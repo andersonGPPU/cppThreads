@@ -6,6 +6,7 @@
 
 void func(std::promise<std::string> && prms) {
 	std::string str("Mensagem enviado ao futuro.");
+	//std::cout << "Ponteiro na função: " << (void*)str.data() << std::endl;
 	prms.set_value(str);
 }
 
@@ -19,6 +20,7 @@ int main()
 	std::cout << "Aqui é parte do programa principal." << std::endl;
 	std::string rstr = ftr.get(); //recupera o que foi prometido
 	std::cout << rstr << std::endl;
+	//std::cout << "Ponteiro recuperado: " << (void*)rstr.data() << std::endl;
 	t.join();
 	
 	return 0;
